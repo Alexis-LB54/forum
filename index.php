@@ -2,40 +2,52 @@
 
 namespace App;
 
-session_start();
+// session_start();
 
 require_once('vendor/autoload.php');
 
 use Router\Router;
 $router = new Router($_GET['url']);
 
-if(!isset($_SESSION['Type'])) {
-    $_SESSION['Type'] = null;  
-}
+// if(!isset($_SESSION['Type'])) {
+//     $_SESSION['Type'] = null;  
+// }
 
-switch ($_SESSION['Type']) {
-    case 'client':
-        $router->get("/home", "App\Controller\AppController@index");
-        $router->get("/cats", "App\Controller\CatController@index");
-        $router->get("/logout", "App\Controller\AppController@logout"); //
-        break;
+// switch ($_SESSION['Type']) {
+//     case 'client':
+//         $router->get("/home", "App\Controller\AppController@index");
+//         $router->get("/cats", "App\Controller\CatController@index");
+//         $router->get("/logout", "App\Controller\AppController@logout"); //
+//         break;
         
-    case 'manager':
-        $router->get("/logout", "App\Controller\AppController@logout");
-        $router->get("/home", "App\Controller\AppController@index");
+//     case 'manager':
+//         $router->get("/logout", "App\Controller\AppController@logout");
+//         $router->get("/home", "App\Controller\AppController@index");
 
-        $router->get("/cats", "App\Controller\CatController@index");
-        $router->post("/cats", "App\Controller\CatController@add");
-        $router->put("/cats/:id", "App\Controller\CatController@modify");
-        break;
-    default:
-        $router->get("/", "App\Controller\AppController@login");
-        $router->post("/", "App\Controller\AppController@login");
+//         $router->get("/cats", "App\Controller\CatController@index");
+//         $router->post("/cats", "App\Controller\CatController@add");
+//         $router->put("/cats/:id", "App\Controller\CatController@modify");
+//         break;
+//     default:
+//         $router->get("/", "App\Controller\AppController@login");
+//         $router->post("/", "App\Controller\AppController@login");
     
-        $router->get("/cats", "App\Controller\CatController@index");
-        $router->get("/lahaine", "App\Controller\AppController@addFake");
-        $router->get("/logout", "App\Controller\AppController@logout"); //
-        break;
-}
+//         $router->get("/cats", "App\Controller\CatController@index");
+//         $router->get("/lahaine", "App\Controller\AppController@addFake");
+//         $router->get("/logout", "App\Controller\AppController@logout"); //
+//         break;
+// }
 
-$router->run();
+// $router->run();
+
+$router->get("/ArticleA", "App\Controller\ManagerController@add");
+$router->post("/ArticleA", "App\Controller\ManagerController@add");
+
+$router->get("/ArticleM/:id", "App\Controller\ManagerController@modify");
+$router->post("/ArticleM/:id", "App\Controller\ManagerController@modify");
+
+$router->get("/CommentA/:id", "App\Controller\CriticController@add");
+$router->post("/CommentA/:id", "App\Controller\CriticController@add");
+
+$router->get("/CommentM/:id", "App\Controller\CriticController@modify");
+$router->post("/CommentM/:id", "App\Controller\CriticController@modify");
