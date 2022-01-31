@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-<form method="POST" action="/CommentA/:id">
+<form method="POST" action="/CommentM/:id">
         <label for="Title">Title:</label>
         <input name="Title" type="text" value="<?php echo $Critic->getTitle() ?>" required />
 

@@ -3,9 +3,9 @@
 namespace App\Controller;
 
 use App\Helpers\EntityManagerHelper;
+use App\Entity\Critic;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping\ClassMetadata;
-use App\Entity\Critic;
 
 class CriticController
 {
@@ -21,7 +21,7 @@ class CriticController
     {
         $em = EntityManagerHelper::getEntityManager();
 
-        $repositoryCritic = new EntityRepository ($em, new ClassMetadata("App\Entity\Article"));
+        $repositoryCritic = new EntityRepository($em, new ClassMetadata("App\Entity\Article"));
         $Critic = $repositoryCritic->find($id);
 
         if (empty($_POST)) {

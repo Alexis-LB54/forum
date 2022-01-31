@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-<form method="POST" action="/ArticleA">
+<form method="POST" action="/ArticleM">
         <label for="Title">Title:</label>
         <input name="Title" type="text" value="<?php echo $Article->setTitle() ?>" required />
 

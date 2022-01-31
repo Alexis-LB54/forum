@@ -37,7 +37,7 @@ class Article
     private string $editor;
 
     /**
-     * @ORM\Column(type="integer" length=13)
+     * @ORM\Column(type="integer")
      */
     private int $ISBN;
 
