@@ -30,5 +30,6 @@
         <input name="Comment" type="textarea" value="<?php echo $Article->setComment() ?>" required />
 
         <input type="submit" value="Add" />
+</form>
 </body>
 </html>

@@ -30,5 +30,6 @@
         <input name="Comment" type="textarea" required />
 
         <input type="submit" value="Add" />
+</form>
 </body>
 </html>
