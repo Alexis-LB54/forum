@@ -64,7 +64,7 @@ class CriticController
     {
         $em = EntityManagerHelper::getEntityManager();
 
-        $repositoryCritic = new EntityRepository ($em, new ClassMetadata("App\Entity\Article"));
+        $repositoryCritic = new EntityRepository ($em, new ClassMetadata("App\Entity\Critic"));
         $Critic = $repositoryCritic->find($id);
 
 
